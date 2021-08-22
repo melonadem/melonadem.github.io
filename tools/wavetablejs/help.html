@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
-<meta charset="ISO-8859-1"> 
+<html>
 <head>
+<meta charset="ISO-8859-1">
 <title>Wavetable calculator help</title>
 <style>
 table {
@@ -18,7 +19,7 @@ td {
 th, td {
 	margin: 0;
 	padding: 0.2em 0.4em 0.2em 0.5em;
-	border: 1px solid #666; 
+	border: 1px solid #666;
 }
 body {
 	margin-top: 6em;
@@ -116,7 +117,7 @@ code {
 </head>
 <body>
 <h1>Wavetable calculator help</h1>
-<a href="index.html" target="_blank">>Use the calculator</a>
+<a href="index.html" target="_blank">Use the calculator</a>
 <h2>What is this?</h2>
 <p>This is a tool to generate waveforms for soundchips like the N163, GB, PC-Engine/HES, SCC, and more.</p>
 <h2>Input fields</h2>
@@ -124,11 +125,11 @@ code {
 <p>The "Wavedata depth" field determines the number of amplitudes each soundsample can have (0-indexed).<br>Defaults: 15 for N163/GB, 31 for PC-Engine/HES, 63 for FDS and 255 for SCC.</p>
 <p>The "Function" field allows you to write the function using the argument "p". The output field is roughly calculated as follows.</p>
 <pre><code>for (t = 0 ; t < wavetable_length; t++) {
-    p = (t + 0.5)/wavetable_length; //Since it is the average value of t and t + 1, 0.5 is added. 
+    p = (t + 0.5)/wavetable_length; //Since it is the average value of t and t + 1, 0.5 is added.
     data[t] = function(p);
 }</code></pre>
 <h2>Examples</h2>
-<p>Be mindful of the angle units. Although sin, squ, tri and saw are defined here, the argument is obtained by dividing the angle (in rad) by 2*pi. 90° becomes 0.25, 180° becomes 0.5, 270° becomes 0.75 and 360° becomes 1.</p>
+<p>Be mindful of the angle units. Although sin, squ, tri and saw are defined here, the argument is obtained by dividing the angle (in rad) by 2*pi. 90ï¿½ becomes 0.25, 180ï¿½ becomes 0.5, 270ï¿½ becomes 0.75 and 360ï¿½ becomes 1.</p>
 <p>You can take the examples below and experiment by changing the value.</p>
 <table>
 <tbody>

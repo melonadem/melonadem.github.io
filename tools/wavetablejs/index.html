@@ -1,36 +1,134 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<meta charset="ISO-8859-1"> 
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-JP" />
-    <meta http-equiv="Content-Script-Type" content="text/javascript" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <link rel="stylesheet" href="Wavetable%20calculator_files/style.css" type="text/css" />
-    <link rel="contents" href="http://ppmck.web.fc2.com/contents.html" title="Contents" />
+    <meta charset="ISO-8859-1">
     <title>Wavetable calculator</title>
+    <style>
+    table {
+    	border-collapse: collapse;
+    	border: 2px solid #000;
+    }
+    tbody th {
+    	text-align:left;
+    }
+    tfoot th {
+    }
+    td {
+    	text-align:left;
+    }
+    th, td {
+    	margin: 0;
+    	padding: 0.2em 0.4em 0.2em 0.5em;
+    	border: 1px solid #666;
+    }
+    body {
+    	margin-top: 6em;
+    	padding: 1em 4em 2em;
+    }
+    h1 {
+    	font-size: 150%;
+    }
+    h2 {
+    	font-size: 130%;
+    }
+
+    h3 {
+    	font-size: 100%;
+    }
+
+    h5 {
+    	margin-top: 1ex;
+    	margin-bottom: 1ex;
+    }
+    dl {
+    	margin-left: 2ex;
+    }
+    dl dd{
+    	margin-top: 1ex;
+    }
+    dl dt {
+    	font-weight: normal;
+    /*
+    	border-width: 1px;
+    	border-style: none none dotted dotted;
+    */
+    	padding-left: 1ex;
+    	margin-top: 2ex;
+    	margin-bottom: 0.5ex;
+    }
+
+    ul li {
+    	margin-top: 0.8ex;
+    }
+    .comment {
+    	font-size: 70%;
+    }
+    .synopsis dt {
+    	font-weight: normal;
+    }
+    pre {
+    	margin: 1ex 1em;
+    	padding: 1ex;;
+    	border: 1px solid black;
+    }
+    /*
+    .dos-console{
+    	background-color: #000;
+    	color: #c0c0c0
+    }
+    */
+    del {;
+    	color: #666
+    }
+
+    ins {
+    	font-weight: bold;
+    }
+
+    hr {
+    	border: solid #ddd;
+    	border-width: 0px 1px 1px 0px;
+    	height: 2px;
+    	width: 98%;
+    	color: #333;
+    }
+
+    address {
+    	margin-top: 2.0em;
+    	border-top: 1px dashed #000;
+    	padding: 0.7em 0.6em 0;
+    }
+
+    strong.warning {
+    	color: #F00;
+    }
+
+    .smallvoice {
+    	font-size: 70%;
+    }
+
+    code {
+    	background-color: #eee;
+    	color: #000
+    }
+
+    </style>
     <script type="text/javascript">
       <!--
       function debugout(str) {
       	window.document.F1.DEBUG.value = str;
       }
-
-
+//Comments have been lost due to encoding error (JA > EN)
       var pi = Math.pi;
-      var t_length;	//»þ´Ö¼´¥µ¥¤¥º
-      var y_height;	//ÅÅ°µ¼´¥µ¥¤¥º(ÇÈ·ÁºÇÂçÃÍ+1)
+      var t_length;
+      var y_height;
 
+      var squ_amp;
 
-      var squ_amp; //¶ë·ÁÇÈÍÑ¤Î¿¶Éý
-
-      //ÈÏ°Ï¤ò0¤«¤é1¤ËÀ©¸Â¤¹¤ë
       function norm1(x) {
       	return x - Math.floor(x);
       }
 
-      //´ðËÜ´Ø¿ô
-
-      //sin¤ß¤¿¤¤¤Ë»È¤¦¤±¤É
-      //0¡Á2*pi¤¬0¡Á1¤ËÂÐ±þ
-      //ÃÍ°è¤Ïsin¤ÈÆ±¤¸¤¯¡¢-1¡Á1
       function sin(phase) {
       	return Math.sin(2 * Math.PI * phase);
       }
@@ -39,12 +137,6 @@
       	var n = norm1(phase);
       	return n*2 - 1;
       }
-
-
-      //2ÈÖÌÜ¤Î°ú¿ô¤¬asymm(°ú¿ô¤¬2¸Ä¤Ê¤¤¤È¤­¤Ïasymm = 0.5)
-      //asymm = 0.5 ¤Çº¸±¦ÂÐ¾Î
-      //>0.5¤À¤ÈÃæ¿´¤¬±¦¤Ë
-      //<0.5¤À¤ÈÃæ¿´¤¬º¸¤Ë
 
       function squ(phase) {
       	var n = norm1(phase);
@@ -61,7 +153,6 @@
       	}
       	return (n < asymm ? squ_amp : -squ_amp);
       }
-
 
       function tri(phase) {
       	var n = norm1(phase);
@@ -82,15 +173,10 @@
       	return n < asymm ? -1 + slope_p * n : 1 - slope_m * (n - asymm);
       }
 
-
-
-
-      //y_height¤Ë¹ç¤ï¤»¤Æ¹â¤µ¤ò-1¡Á1¤Î¾õÂÖ¤«¤é»ý¤Á¾å¤²¤¿¤ê³ÈÂç¤·¤¿¤ê
       function normalize(x) {
       	return Math.floor(x*(y_height/2) + y_height/2);
       }
 
-      //sprintf("\$%02x", $num)¤ò¼Â¸½
       function toHexStr(num, prefix_str, signed_check) {
       	var prefix;
 
@@ -115,7 +201,6 @@
       	return prefix + num.toString(16);
       }
 
-      //$str x $num¤ò¼Â¸½
       function repeat_str(str, num) {
       	var j;
       	var ret = "";
@@ -125,20 +210,15 @@
       	return ret;
       }
 
-      //¥á¥¤¥ó
       function calcmain() {
-      	debugout("Initializing...");
       	t_length = parseInt(window.document.F1.N.value);
       	y_height = parseInt(window.document.F1.M.value) + 1;
       	squ_amp = (y_height - 1.0) / y_height;
-      	debugout("Converting...");
 
       	var fdata = new Array(t_length);
       	var idata = new Array(t_length);
       	var t;
       	var datafunction = new Function("p", "return " + window.document.F1.FUNC.value + ";");
-      	//debugout(datafunction);
-      	//debugout(datafunction(1.0));
 
       	var signed_check;
       	if (window.document.F1.sign[0].checked) {
@@ -147,13 +227,7 @@
       		signed_check = true;
       	}
       	for (t = 0 ; t < t_length; t++) {
-      		//phase (¤³¤ÎÃÍ 1 ¤ËÂÐ¤· radian¤Ï 2*pi)
-      		var p = (t + 0.5)/t_length; //t¤Èt+1¤ÎÊ¿¶ÑÃÍ¤Ê¤Î¤Ç0.5¤òÂ­¤·¤Æ¤¤¤ë
-
-
-      		//-90ÅÙ¤«¤é»Ï¤á¤ë¾ì¹ç
-      		//p -= 0.25;
-
+      		var p = (t + 0.5)/t_length;
 
       		var y;
 
@@ -168,12 +242,6 @@
       	for (i = 0; i < t_length; i++) {
       		min = min > idata[i] ? idata[i] : min;
       	}
-
-      	//ºÇ¾®ÃÍ¤ò0¤ËÂ·¤¨¤ë
-      	//var i;
-      	//for (i = 0; i < t_length; i++) {
-      	//	idata[i] = idata[i] - min;
-      	//}
 
       	var graph_str = "";
       	for (i = 0; i < t_length; i++) {
@@ -248,7 +316,6 @@
       	}
 
       	window.document.F1.TEXT.value = result_vals.join(sep);
-      	debugout("OK");
       }
 
       function nmpreset(n, m, s) {
@@ -265,7 +332,6 @@
       	}
       }
 
-      // -->
     </script>
     <style></style>
   </head>
@@ -302,9 +368,9 @@
       <br />
       <b>Output format:</b>
       <input type="radio" name="format" value="0" />decimal |
-      <input type="radio" name="format" value="1" checked="checked" />$xxx |
-      <input type="radio" name="format" value="2" />0xxx |
-      <input type="radio" name="format" value="3" />xx |
+      <input type="radio" name="format" value="1" checked="checked" />$XXh |
+      <input type="radio" name="format" value="2" />0xXXh |
+      <input type="radio" name="format" value="3" />XXh |
       <input type="radio" name="format" value="4" />normalized float
       <br />
       <b>Separator:</b>
@@ -323,7 +389,6 @@
       Graph<br />
       <textarea cols="100" rows="8" name="GRAPH"></textarea><br />
       <br /><br />
-      debug: <input type="text" value="DEBUG" size="15" name="DEBUG" /><br />
     </form>
 	<p>This page has been adapted from an old FC2 PPMCK page. I preserved it and roughly translated it to preserve it and open the tool up for international audiences. Special thanks to Defmech for helping prepare this page in particular. Original page by h7 (h7mailmail-at-yahoo co jp) (I am not sure if that address is still active, by the way)</p>
   </body>
