@@ -123,6 +123,7 @@ code {
 <h2>Input fields</h2>
 <p>The "Wavedata length" field determines how many samples the waveform should contain (By default, this is 64 for the FDS, and 32 for the other systems)</p>
 <p>The "Wavedata depth" field determines the number of amplitudes each soundsample can have (0-indexed).<br>Defaults: 15 for N163/GB, 31 for PC-Engine/HES, 63 for FDS and 255 for SCC.</p>
+<p>If using non-float output values, the waveform will be clamped/clipped between 0 and the maximum value. To-do: add other out-of-bounds methods ala LSDj</p>
 <p>The "Function" field allows you to write the function using the argument "p". The output field is roughly calculated as follows.</p>
 <pre><code>for (t = 0 ; t < wavetable_length; t++) {
     p = (t + 0.5)/wavetable_length; //Since it is the average value of t and t + 1, 0.5 is added.
@@ -159,6 +160,6 @@ code {
 <tr><th>2.0*Math.abs(sin(0.5*p)) - 1.0</th><td><img src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAASAQMAAAAJ7e5rAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABlBMVEUAAAAA1ABAM7nUAAAAKElEQVQI12NgwAISMMgP6CTjDwTJ/AdBsv8Dkfz/gYT9////DyAbCwAefw3wsLFe4QAAAABJRU5ErkJggg=="></td><td>Full-wave rectification.</td></tr>
 </tbody>
 </table>
-<p>This page has been adapted from an old FC2 PPMCK page. I preserved it and roughly translated it to preserve it and open the tool up for international audiences. Original page by h7 (h7mailmail-at-yahoo co jp) (I am not sure if that address is still active, by the way)</p>
+<p>This page has been adapted from an old FC2 PPMCK page. I preserved it and roughly translated it to preserve it and open the tool up for international audiences. Original page by h7 (h7mailmail-at-yahoo co jp) (I am unsure if that address is still active, try your luck!)</p>
 </body>
 </html>
