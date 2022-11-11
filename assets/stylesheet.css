@@ -3,34 +3,7 @@
  * even commenting it to make sure the idea gets across (which it did)! Thanks a bunch!!
  * You should go stream/buy his album(s): https://commodoreamigo.bandcamp.com/album/goethe-kinski
  */
- @font-face {
-    font-family: 'Bradius Plus';
-    src: url('assets/BradiusPlus.woff2') format('woff2'),
-        url('assets/BradiusPlus.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Mont Heavy DEMO';
-    src: url('assets/Mont-HeavyDEMO.woff2') format('woff2'),
-        url('assets/Mont-HeavyDEMO.woff') format('woff');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Mont ExtraLight DEMO';
-    src: url('assets/Mont-ExtraLightDEMO.woff2') format('woff2'),
-        url('assets/Mont-ExtraLightDEMO.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-  body {
+   body {
     margin: 0;
     background: #280518;
   }
@@ -110,14 +83,14 @@
   .scoreheader {
       background: rgba(0, 0, 0, 0.8);
       margin-top: -16px;
-      width: 100%;
-      height: 15vh;
+      width: 100vw;
+      height: 5em;
+      display: flex;
   }
   .ac-header-text {
       font-family: 'Bradius Plus';
       color: white;
-      padding-left: 1vw;
-      padding-top: 1vh;
+      padding-top: 0.5em;
       font-size: 1.1em;
   }
 

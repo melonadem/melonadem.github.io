@@ -9,18 +9,46 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <link href="assets/stylesheet.css" rel="stylesheet">
+    <style>
+    @font-face {
+       font-family: 'Bradius Plus';
+       src: url('assets/BradiusPlus.woff2') format('woff2'),
+           url('assets/BradiusPlus.woff') format('woff');
+       font-weight: normal;
+       font-style: normal;
+       font-display: swap;
+   }
+
+   @font-face {
+       font-family: 'Mont Heavy DEMO';
+       src: url('assets/Mont-HeavyDEMO.woff2') format('woff2'),
+           url('assets/Mont-HeavyDEMO.woff') format('woff');
+       font-weight: 800;
+       font-style: normal;
+       font-display: swap;
+   }
+
+   @font-face {
+       font-family: 'Mont ExtraLight DEMO';
+       src: url('assets/Mont-ExtraLightDEMO.woff2') format('woff2'),
+           url('assets/Mont-ExtraLightDEMO.woff') format('woff');
+       font-weight: 200;
+       font-style: normal;
+       font-display: swap;
+   }
+   </style>
   </head>
   <body>
       <div class="scoreheader">
-          <div style="display: flex; justify-content: space-around; position: absolute;width: 100vw;">
-          <p class="ac-header-text" style="color:red;">HIGH SCORE</p>
-          <p class="ac-header-text" style="color:red;">CREDITS</p>
+          <div style="text-align:left;width:46vw;margin-left:4vw;">
+              <p class="ac-header-text" style="color:red;padding-top:2">HIGH SCORE</p>
+              <p class="ac-header-text" style="margin-top:-1.5em">1234567890</p>
           </div>
 
-          <div style="display: flex; justify-content: space-around; position: absolute;width: 100vw;">
-          <p class="ac-header-text" style="padding-top:32px;">Todays Date</p>
-          <p class="ac-header-text" style="padding-top:32px;text-align:right;">0</p>
-            </div>
+          <div style="text-align:right;width:46vw;margin-right:4vw;">
+              <p class="ac-header-text" style="color:red;align: right;">CREDITS</p>
+              <p class="ac-header-text" style="margin-top:-1.5em;align: right;">0</p>
+          </div>
       </div>
     <div class="logoheader">
        <img id="logoimage" src="/assets/logo.png">
