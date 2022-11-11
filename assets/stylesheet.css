@@ -1,0 +1,148 @@
+/* A WHOLE BUNCH OF SPECIAL THANKS TO GERO (who is in the Red Means Recording discord)
+ * He's been a very very very very helpful lad, patiently going thru stuff with me,
+ * even commenting it to make sure the idea gets across (which it did)! Thanks a bunch!!
+ * You should go stream/buy his album(s): https://commodoreamigo.bandcamp.com/album/goethe-kinski
+ */
+ @font-face {
+    font-family: 'Bradius Plus';
+    src: url('assets/BradiusPlus.woff2') format('woff2'),
+        url('assets/BradiusPlus.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mont Heavy DEMO';
+    src: url('assets/Mont-HeavyDEMO.woff2') format('woff2'),
+        url('assets/Mont-HeavyDEMO.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mont ExtraLight DEMO';
+    src: url('assets/Mont-ExtraLightDEMO.woff2') format('woff2'),
+        url('assets/Mont-ExtraLightDEMO.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+  body {
+    margin: 0;
+    background: #280518;
+  }
+
+  .logoheader {
+    margin-top: 6vh;
+    transition: 0.18s ease;
+  }
+
+  #logoimage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+    height: auto;
+    transition: 0.18s ease;
+  }
+
+  #avatarimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 16vw;
+    height: auto;
+    transition: 0.18s ease;
+  }
+
+  #linknexus {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 18px;
+    columns: 6;
+    width: 480px;
+    margin: 30px auto;
+    border-radius: 200px;
+    transform: scale(1);
+    transition: 0.18s ease;
+
+  }
+  #linkbutton {
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    margin: 0 auto;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    transition: 0.1s ease;
+  }
+  .bigicon {
+    width: 80%;
+    height: 80%;
+    padding: 10%;
+  }
+
+  #linkbutton:hover {
+    background: rgb(61, 128, 57);
+    cursor: pointer;
+  }
+
+  #linkbutton:active {
+    background: rgb(71, 138, 67);
+    cursor: pointer;
+  }
+
+  .portfolioArrow {
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* this is 50% of the parent */
+    transform: translateX(-50%); /* this is 50% of the actual elements width so it will be centered */
+    height: 8vh;
+  }
+
+  .actext {
+      font-family: 'Bradius Plus';
+      color: white;
+      text-align: center;
+  }
+  .scoreheader {
+      background: rgba(0, 0, 0, 0.8);
+      margin-top: -16px;
+      width: 100%;
+      height: 15vh;
+  }
+  .ac-header-text {
+      font-family: 'Bradius Plus';
+      color: white;
+      padding-left: 1vw;
+      padding-top: 1vh;
+      font-size: 1.1em;
+  }
+
+  #portfolioDiv {
+    padding-bottom: 10vh; /* this will leave empty space under this element which will be overlaid by the portfolio element once the viewport gets too small so the portfolio never runs into the content */
+  }
+
+  /*Media queries for different aspect ratios*/
+  @media (min-aspect-ratio: 2) {
+    #logoimage {
+      width: auto;
+      height: 24.2vh;
+    }
+    #avatarimg {
+      width: auto;
+      height: 32vh;
+    }
+  }
+  @media (max-aspect-ratio: 0.84) {
+    #logoimage {
+      width: 70vw;
+      height: auto;
+    }
+    #avatarimg {
+      width: 28vw;
+      height: auto;
+    }
+  }
