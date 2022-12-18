@@ -17,7 +17,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50vw;
+    width: 70vw;
     height: auto;
     transition: 0.18s ease;
   }
@@ -99,16 +99,6 @@
   }
 
   /*Media queries for different aspect ratios*/
-  @media (min-aspect-ratio: 2) {
-    #logoimage {
-      width: auto;
-      height: 24.2vh;
-    }
-    #avatarimg {
-      width: auto;
-      height: 32vh;
-    }
-  }
   @media (max-aspect-ratio: 0.84) {
     #logoimage {
       width: 70vw;
