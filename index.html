@@ -27,33 +27,43 @@
        font-style: normal;
        font-display: swap;
    }
+   
+   .blink {
+		animation: blinker 1000ms steps(1) infinite;
+	}
+	@keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
 
    </style>
   </head>
   <body>
+  <marquee scrollamount="20" scrolldelay="60" behavior="slide">
       <div class="scoreheader">
           <div style="text-align:left;width:46vw;margin-left:4vw;">
-              <marquee><p class="ac-header-text" style="color:red;padding-top:2">HIGH SCORE</p></marquee>
-              <marquee><p class="ac-header-text" style="margin-top:-1.5em">1234567890</p></marquee>
+              <p class="ac-header-text" style="color:red;padding-top:2">HIGH SCORE</p>
+              <p class="ac-header-text" style="margin-top:-1.5em">1234567890</p>
           </div>
 
           <div style="text-align:right;width:46vw;margin-right:4vw;">
-              <marquee><p class="ac-header-text" style="color:red;align: right;">CREDITS</p></marquee>
-              <marquee><p class="ac-header-text" style="margin-top:-1.5em;align: right;">0</p></marquee>
+              <p class="ac-header-text" style="color:red;align: right;">CREDITS</p>
+              <p class="ac-header-text" style="margin-top:-1.5em;align: right;">0</p>
           </div>
       </div>
     <div class="logoheader">
-       <marquee><img id="logoimage" src="/assets/logo.png"></marquee>
+       <img id="logoimage" src="assets/logo.png">
     </div>
 
 
-    <marquee><p class="actext" style="font-size:1.5em">INSERT COIN</p></marquee>
-    <marquee><p class="actext" style="color:#73CC3A;">ABOUT - SHOWCASE REEL - CONTACT - LINKS</P></marquee>
-        <marquee><p class="actext" style="color:#73CC3A;font-family:'PRPASmall'">still under construction lol</P></marquee>
+    <p class="actext blink" style="font-size:1.5em">INSERT COIN</p>
+    <p class="actext" style="color:#73CC3A;">ABOUT - SHOWCASE REEL - CONTACT - LINKS</P>
+        <p class="actext" style="color:#73CC3A;font-family:'PRPASmall'">still under construction lol</P>
 
     <div>
-      <marquee><img id="avatarimg" src="/assets/avatar.png" alt="Avatar drawn by myself."></marquee>
+      <img id="avatarimg" src="assets/avatar.png" alt="Avatar drawn by myself.">
     </div>
-
+	</marquee>
   </body>
 </html>
