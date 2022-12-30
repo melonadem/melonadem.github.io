@@ -36,6 +36,17 @@
           opacity: 0;
         }
       }
+	  
+   a {
+       color: white;
+       text-decoration: none;
+   }
+   
+   .credit {
+		display: flex;
+	   align-items: center;
+	   justify-content: center;
+   }
 
    </style>
   </head>
@@ -44,12 +55,12 @@
       <div class="scoreheader">
           <div style="text-align:left;width:46vw;margin-left:4vw;">
               <p class="ac-header-text" style="color:red;padding-top:2">HIGH SCORE</p>
-              <p class="ac-header-text" style="margin-top:-1.5em">1234567890</p>
+              <p class="ac-header-text" style="margin-top:-1.5em" id="date"></p>
           </div>
 
           <div style="text-align:right;width:46vw;margin-right:4vw;">
               <p class="ac-header-text" style="color:red;align: right;">CREDITS</p>
-              <p class="ac-header-text" style="margin-top:-1.5em;align: right;">0</p>
+              <p class="ac-header-text" style="margin-top:-1.5em;align: right;" id="credcount">0</p>
           </div>
       </div>
     <div class="logoheader">
@@ -57,7 +68,7 @@
     </div>
 
 
-    <p class="actext blink" style="font-size:1.5em">INSERT COIN</p>
+    <div class="credit"><a href="" id="credit"><p class="actext blink" style="font-size:1.5em" >INSERT COIN</p></a></div>
     <p class="actext" style="color:#73CC3A;">ABOUT - SHOWCASE REEL - CONTACT - LINKS</P>
         <p class="actext" style="color:#73CC3A;font-family:'PRPASmall'">still under construction lol</P>
 
@@ -65,5 +76,20 @@
       <img id="avatarimg" src="assets/avatar.png" alt="Avatar drawn by myself.">
     </div>
 	</marquee>
+	
+	<script>
+		const d = new Date();
+		var dateString = "" + d.getTime()
+		document.getElementById("date").innerHTML = dateString.substring(0, 6) + "0";
+		window.onload = function() {
+			var c = document.getElementById("credit");
+			var creditcount = 0;
+			c.onclick = function(){
+				creditcount += 1;
+				document.getElementById("credcount").innerHTML = creditcount;
+			return false;
+			}
+		}
+	</script>
   </body>
 </html>
