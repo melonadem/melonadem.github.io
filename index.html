@@ -27,7 +27,7 @@
        font-style: normal;
        font-display: swap;
    }
-   
+
    .blink {
 		animation: blinker 1000ms steps(1) infinite;
 	}
@@ -36,12 +36,12 @@
           opacity: 0;
         }
       }
-	  
+
    a {
        color: white;
        text-decoration: none;
    }
-   
+
    .credit {
 		display: flex;
 	   align-items: center;
@@ -51,7 +51,6 @@
    </style>
   </head>
   <body>
-  <marquee scrollamount="20" scrolldelay="60" behavior="slide">
       <div class="scoreheader">
           <div style="text-align:left;width:46vw;margin-left:4vw;">
               <p class="ac-header-text" style="color:red;padding-top:2">HIGH SCORE</p>
@@ -75,8 +74,7 @@
     <div>
       <img id="avatarimg" src="assets/avatar.png" alt="Avatar drawn by myself.">
     </div>
-	</marquee>
-	
+
 	<script>
 		const d = new Date();
 		var dateString = "" + d.getTime()
